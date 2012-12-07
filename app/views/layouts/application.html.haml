@@ -50,9 +50,9 @@
           = yield
         .span3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3  Organizations
             %ul.nav.nav-list
-              %li.nav-header Organizations
+              %li
               - if current_user
                 - current_user.organizations.each do |org|
                   %li= link_to "#{org.name}", organization_path(org)
