@@ -3,5 +3,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :organization_users
   has_many :organizations, :through => :organization_users
+  has_many :meetings, :through => :organizations
+  has_many :messages :through => :meetings
+
   validates_presence_of :password, :on => :create
 end
