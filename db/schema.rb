@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(:version => 20121124212820) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "organization_users", :force => true do |t|
-    t.integer  "organization_id"
-    t.integer  "user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
   create_table "organizations", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -43,13 +36,6 @@ ActiveRecord::Schema.define(:version => 20121124212820) do
   create_table "users", :force => true do |t|
     t.string   "email",           :null => false
     t.string   "password_digest", :null => false
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "users_organizations", :force => true do |t|
-    t.integer  "organization_id"
-    t.integer  "user_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
