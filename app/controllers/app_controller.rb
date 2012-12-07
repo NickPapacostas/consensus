@@ -1,8 +1,12 @@
 class AppController < ApplicationController
   before_filter :require_user
-  layout false
+  layout 'application2'
 
   def index
-    @user = current_user if current_user
+    if current_user
+      @user = current_user
+    else
+      redirect_to sign_up_path :layout => 'application'
+    end
   end
 end
