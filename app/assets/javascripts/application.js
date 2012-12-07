@@ -1,23 +1,21 @@
-//= require <json2>
-//= require <array.ext>
-//= require <jquery>
-//= require <jquery.tmpl>
-//= require <jquery.audio>
+//= require json2
+//= require app/lib/array.ext.js
+//= require jquery
+//= require app/lib/jquery.tmpl
+//= require app/lib/jquery.audio
 
-//= require <spine>
-//= require <spine.model.ajax>
-//= require <spine.controller.manager>
-//= require <utils>
+//= require app/lib/spine
+//= require app/lib/spine.model.ajax
+//= require app/lib/spine.controller.manager
+//= require app/utils
 
-//= require <models/search>
-//= require <models/message>
-//= require <models/channel>
+//= require app/models/message
+//= require app/models/channel
 
-//= require <controllers/messages>
-//= require <controllers/sidebar>
-//= require <controllers/searches>
-//= require <controllers/settings>
-//= require <controllers/assets>
+//= require app/controllers/messages
+//= require app/controllers/sidebar
+//= require app/controllers/settings
+
 window.App = Spine.Controller.create({
   el: $("body"),
 
@@ -45,4 +43,4 @@ window.App = Spine.Controller.create({
 
 });
 
-//= require <juggernaut>
+//= require juggernaut
