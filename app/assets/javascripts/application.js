@@ -1,20 +1,22 @@
 //= require json2
-//= require app/lib/array.ext.js
-//= require jquery
-//= require app/lib/jquery.tmpl
-//= require app/lib/jquery.audio
+//= require lib/array.ext.js
+//= require lib/jquery
+//= require lib/jquery.tmpl
+//= require lib/jquery.audio
+//= require lib/spine
+//= require lib/spine.model.ajax
+//= require lib/spine.controller.manager
+//= require utils
+//= require models/search
+//= require models/message
+//= require models/channel
+//= require controllers/messages
+//= require controllers/sidebar
+//= require controllers/searches
+//= require controllers/settings
+//= require controllers/assets
 
-//= require app/lib/spine
-//= require app/lib/spine.model.ajax
-//= require app/lib/spine.controller.manager
-//= require app/utils
-
-//= require app/models/message
-//= require app/models/channel
-
-//= require app/controllers/messages
-//= require app/controllers/sidebar
-//= require app/controllers/settings
+jQuery(function($){
 
 window.App = Spine.Controller.create({
   el: $("body"),
@@ -29,17 +31,24 @@ window.App = Spine.Controller.create({
   init: function(){
     this.messages = Messages.init({el: this.messagesEl});
     this.sidebar  = Sidebar.init({el: this.sidebarEl});
+    this.searches = Searches.init({el: this.searchesEl});
     this.settings = Settings.init({el: this.settingsEl});
+    this.assets   = Assets.init({messages: this.messages});
 
     // Make sure only one view is visible
     this.manager = Spine.Controller.Manager.init();
-    this.manager.addAll(this.messages, this.settings);
+    this.manager.addAll(this.messages, this.searches, this.settings);
 
+    // Remove selected sidebar items when searching
+    this.manager.bind("change", this.proxy(function(current){
+      if (current == this.searches) this.sidebar.deactivate();
+    }));
 
     Message.fetch();
     Channel.fetch();
   }
 }).init();
 
+});
 
-//= require juggernaut
+//= require <juggernaut>

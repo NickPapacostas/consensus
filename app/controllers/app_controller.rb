@@ -6,7 +6,10 @@ class AppController < ApplicationController
     if current_user
       @user = current_user
     else
-      redirect_to sign_up_path :layout => 'application'
+      flash[:error] = "Sign in to chat"
+      respond_to do |format|
+        format.html{redirect_to root_url}
+      end
     end
   end
 end
