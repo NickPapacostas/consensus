@@ -5,6 +5,8 @@
     = csrf_meta_tag
 
     = javascript_include_tag :juggernaut, "application"
+    :javascript
+      window.user_email = "#{@user.email}"
   %body
     %header#title
       %h1 Concencus Chat
