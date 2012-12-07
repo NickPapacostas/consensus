@@ -48,4 +48,4 @@ gem 'simple_form'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'

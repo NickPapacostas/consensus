@@ -31,9 +31,15 @@
               %li= link_to "Home", "/"
               %li= link_to "Organizations", "/organizations"
               %li= link_to "Users", "/users"
-              .user_info
-                -if current_user
-                  = current_user.email
+
+            #user_nav{:style => "float:right"}
+              - if current_user
+                Logged in as #{current_user.email}.
+                \#{link_to "Log out", log_out_path}
+              - else
+                = link_to "Sign up", sign_up_path
+                or
+                \#{link_to "log in", log_in_path}
 
 
     .container
@@ -46,10 +52,10 @@
           .well.sidebar-nav
             %h3 Sidebar
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li.nav-header Organizations
+              - if current_user
+                - current_user.organizations.each do |org|
+                  %li= link_to "#{org.name}", organization_path(org)
 
       %footer
         %p &copy; Company 2012
