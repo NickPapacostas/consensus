@@ -41,5 +41,4 @@ class Asset < CarrierWave::Uploader::Base
   extend ActiveModel::Naming
   include ActiveModel::Conversion
 
-
 end
