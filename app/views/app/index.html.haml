@@ -1,0 +1,43 @@
+%html
+  %head
+    %title Concensus Chat
+    = stylesheet_link_tag "app/application2"
+    = csrf_meta_tag
+
+    = javascript_include_tag :juggernaut, "application"
+    :javascript
+      window.user_email = "#{@user.email}"
+  %body
+    %header#title
+      %h1 Concencus Chat
+    #wrapper
+      #sidebar
+        %h3 Meetings
+        %ul#channels
+        %h3 Options
+        %ul#options
+          %li{"data-name" => "settings"} Settings
+      .vdivide
+      #content
+        #messages
+          %ul.items
+          .new
+            %textarea
+            %button Send
+        #searches
+          %h2
+            Search results:
+            %span.query
+          %ul.items
+        #settings
+          %h2 Channels
+          %ul.channels
+          %h2 Create Channel
+          .createChannel
+            %form
+              %input{:placeholder => "Channel name", :type => "text"}
+                %button.pill New Channel
+          %div= link_to "Logout", log_out_path
+    = script_template "message"
+    = script_template "channels"
+    = script_template "edit_channel"
