@@ -11,6 +11,7 @@
 //= require models/search
 //= require models/message
 //= require models/channel
+//= require models/user
 //= require controllers/messages
 //= require controllers/sidebar
 //= require controllers/searches
@@ -45,9 +46,17 @@ window.App = Spine.Controller.create({
       if (current == this.searches) this.sidebar.deactivate();
     }));
 
+    User.fetch();
     Message.fetch();
     Channel.fetch();
+  },
+
+  current_user: function(){
+    return User.select(function(u){
+      return u.email == window.user_email;
+    })[0];
   }
+
 }).init();
 
 });

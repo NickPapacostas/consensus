@@ -1,4 +1,4 @@
-var Message = exports = Spine.Model.setup("Message", ["body", "name", "channel_id", "per"]);
+var Message = exports = Spine.Model.setup("Message", ["body", "name", "channel_id", "user_id", "per"]);
 
 Message.extend(Spine.Model.Ajax);
 
@@ -19,6 +19,10 @@ Message.include({
 
   isPaste: function(){
     return this.body.match(/\r|\n/);
+  },
+
+  user: function(){
+    return User.find(this.user_id);
   }
 });
 

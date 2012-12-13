@@ -1,18 +1,24 @@
 %html
   %head
-    %title Concensus Chat
+    %title Consensus Chat
     = javascript_include_tag "application"
     = stylesheet_link_tag "app/application"
     = csrf_meta_tag
     :javascript
       window.user_email = "#{@user.email}"
+
+
   %body
     %header#title
-      %h1 Concencus Chat
+      %h1= link_to( "Consencus Chat", "/app")
+      %ul
+        %li= link_to("Home", "/")
     #wrapper
       #sidebar
         %h3 Meetings
         %ul#channels
+        %h3 Users
+        %ul#users
         %h3 Options
         %ul#options
           %li{"data-name" => "settings"} Settings
@@ -23,11 +29,6 @@
           .new
             %textarea
             %button Send
-        #searches
-          %h2
-            Search results:
-            %span.query
-          %ul.items
         #settings
           %h2 Channels
           %ul.channels
@@ -37,6 +38,8 @@
               %input{:placeholder => "Channel name", :type => "text"}
                 %button.pill New Channel
           %div= link_to "Logout", log_out_path
+
+
     = script_template "message"
     = script_template "channels"
     = script_template "edit_channel"
