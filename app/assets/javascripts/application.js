@@ -7,6 +7,7 @@
 //= require lib/spine.model.ajax
 //= require lib/spine.controller.manager
 //= require utils
+//= require juggernaut
 //= require models/search
 //= require models/message
 //= require models/channel
@@ -51,4 +52,3 @@ window.App = Spine.Controller.create({
 
 });
 
-//= require <juggernaut>
