@@ -1,6 +1,6 @@
 class AppController < ApplicationController
   before_filter :require_user
-  layout 'application2'
+  layout 'app/application'
 
   def index
     if current_user
