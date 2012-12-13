@@ -51,12 +51,12 @@
         .span3
           .well.sidebar-nav
             -if current_user
-              %h3 Founded Organizations
+              %h4 Founded Organizations
               %ul.nav.nav-list
                 %li
                   - current_user.founded_orgs.each do |org|
                     %li= link_to "#{org.name}", organization_path(org)
-              %h3 Organizations
+              %h4 Member of:
               %ul.nav.nav-list
                 %li
                 - if current_user

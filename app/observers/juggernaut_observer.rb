@@ -1,23 +1,23 @@
-class JuggernautObserver < Activeresourceord::Observer
+class JuggernautObserver < ActiveRecord::Observer
   observe :message, :channel
 
-  def after_create(resource)
-    publish(:create, resource)
+  def after_create(rec)
+    publish(:create, rec)
   end
 
-  def after_update(resource)
-    publish(:update, resource)
+  def after_update(rec)
+    publish(:update, rec)
   end
 
-  def after_destroy(resource)
-    publish(:destroy, resource)
+  def after_destroy(rec)
+    publish(:destroy, rec)
   end
 
   protected
-    def publish(type, resource)
+    def publish(type, rec)
       Juggernaut.publish("/observer", {
-        :type  => type, :id => resource.id,
-        :klass => resource.class.name, :resourceord => resource
+        :type  => type, :id => rec.id,
+        :klass => rec.class.name, :record => rec
       })
     end
 end
