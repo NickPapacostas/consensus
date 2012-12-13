@@ -17,5 +17,8 @@
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_organization_path(organization), :class => 'btn btn-mini'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), organization_path(organization), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+        -if current_user && current_user.founded_orgs.include?(@organization)
+          .btn=link_to("create meeting", "/app")
+
 
 = link_to t('.new', :default => t("helpers.links.new")), new_organization_path, :class => 'btn btn-primary'

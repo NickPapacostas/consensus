@@ -56,7 +56,7 @@
                 %li
                   - current_user.founded_orgs.each do |org|
                     %li= link_to "#{org.name}", organization_path(org)
-              %h3  Organizations
+              %h3 Organizations
               %ul.nav.nav-list
                 %li
                   - current_user.organizations.each do |org|
