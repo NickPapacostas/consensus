@@ -60,6 +60,6 @@ module Concensus
     config.assets.version = '1.0'
 
     #to avoid manual asset compilation on heroku
-    config.assets.initialize_on_precompile = false
+    #config.assets.initialize_on_precompile = false
   end
 end
