@@ -1,0 +1,16 @@
+class Organization < ActiveRecord::Base
+<<<<<<< HEAD
+  attr_accessible :name, :founding_user_id
+
+  has_many :organizations_users
+  has_many :users, :through => :organizations_users
+
+  def founding_user
+    user = User.find(self.founding_user_id)
+  end
+=======
+  attr_accessible :name
+  has_many :organizations_users
+  has_many :users, :through => :organizations_users
+>>>>>>> 1004be839d941435837330a07af2ee021a5ad6a5
+end

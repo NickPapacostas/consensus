@@ -1,0 +1,10 @@
+= simple_form_for @organization, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+<<<<<<< HEAD
+  = f.hidden_field :founding_user_id, :value => current_user.id
+
+=======
+>>>>>>> 1004be839d941435837330a07af2ee021a5ad6a5
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), organizations_path, :class => 'btn'
