@@ -22,6 +22,7 @@ window.Sidebar = Spine.Controller.create({
 
   init: function(){
     Channel.bind("refresh change", this.renderChannels);
+    User.bind("refresh change", this.renderUsers);
     this.App.bind("change", this.change);
   },
 
@@ -55,8 +56,10 @@ window.Sidebar = Spine.Controller.create({
   click: function(e){
     var element = $(e.target);
     var type = element.attr("data-name");
-    var item = element.item();
-    this.App.trigger("change", type, item);
+    if( type == "channels"){
+        var item = element.item();
+        this.App.trigger("change", type, item);
+    }
   },
 
   deactivate: function(){

@@ -1,5 +1,5 @@
 class JuggernautObserver < ActiveRecord::Observer
-  observe :message, :channel
+  observe :message, :channel, :user
 
   def after_create(rec)
     publish(:create, rec)
