@@ -51,7 +51,7 @@
         .span3
           .well.sidebar-nav
             -if current_user
-              %h4 Founded Organizations
+              %h4 Founded Organizations:
               %ul.nav.nav-list
                 %li
                   - current_user.founded_orgs.each do |org|
