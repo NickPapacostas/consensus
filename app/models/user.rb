@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :messages, :through => :meetings
 
   validates_presence_of :password, :on => :create
+  validates_uniqueness_of :email
 
 
   def self.authenticate(email, password)
