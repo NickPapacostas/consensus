@@ -1,0 +1,21 @@
+.jumbotron.masthead
+  .container
+    %h1 Consensus
+    %p Awesome non-hierarchical decision making
+
+    %h2
+      - if current_user
+        ="Welcome #{current_user.email}"
+      -else
+        %a.btn.btn-primary.btn-large{:href => sign_up_path} Sign up
+    %ul.masthead-links
+      %li
+        %a{:href => "http://github.com/t3hronin/consensus"} GitHub project
+
+
+    %hr.soften
+      %h1 Built with Rails, SpineJS and Bootstrap
+      %p.marketing-byline
+        Chat app based on
+        %a{:href => "https://github.com/maccman/holla"} Holla
+        by Maccman
