@@ -34,7 +34,8 @@
 
             #user_nav{:style => "float:right"}
               - if current_user
-                Logged in as #{current_user.email}.
+                Logged in as #{current_user.email}
+                \#{link_to "Edit Account", edit_user_path(current_user)} or
                 \#{link_to "Log out", log_out_path}
               - else
                 = link_to "Sign up", sign_up_path
@@ -51,17 +52,21 @@
         .span3
           .well.sidebar-nav
             -if current_user
-              %h4 Founded Organizations:
-              %ul.nav.nav-list
-                %li
-                  - current_user.founded_orgs.each do |org|
-                    %li= link_to "#{org.name}", organization_path(org)
-              %h4 Member of:
-              %ul.nav.nav-list
-                %li
-                - if current_user
-                  - current_user.organizations.each do |org|
-                    %li= link_to "#{org.name}", organization_path(org)
+              -if !current_user.founded_orgs.empty?
+                %h4 Founded Organizations:
+                %ul.nav.nav-list
+                  %li
+                    - current_user.founded_orgs.each do |org|
+                      %li= link_to "#{org.name}", organization_path(org)
+              -if !current_user.organizations.empty?
+                %h4 Member of:
+                %ul.nav.nav-list
+                  %li
+                    - current_user.organizations.each do |org|
+                      %li= link_to "#{org.name}", organization_path(org)
+              - else
+                %h4 You are not a member of any organizations, add them by editing your account in the top right
+
             -else
               %h3 Sign up to start chatting
 
