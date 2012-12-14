@@ -4,6 +4,7 @@
     = javascript_include_tag "application"
     = stylesheet_link_tag "app/application"
     = csrf_meta_tag
+    = meta_tag "handle", current_user.email
     :javascript
       window.user_email = "#{@user.email}"
 

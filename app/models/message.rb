@@ -4,6 +4,6 @@ class Message < ActiveRecord::Base
 
   validates_presence_of :body, :channel_id
 
-  attr_accessible :id, :body, :name, :channel_id
+  attr_accessible :id, :body, :name, :channel_id, :user_id
 
 end
