@@ -33,6 +33,8 @@ module Concensus
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.active_record.observers = :juggernaut_observer
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -59,7 +61,7 @@ module Concensus
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.active_record.observers = :juggernaut_observer
+
 
     require "rack/sprockets"
     config.middleware.use "Rack::Sprockets", :load_path => ["app/javascripts/", "app/javascripts/lib/"]
@@ -71,6 +73,7 @@ module Concensus
 
     # require "supermodel"
     # SuperModel::Base.include_root_in_json     = false
+
     #to avoid manual asset compilation on heroku
     #config.assets.initialize_on_precompile = false
   end

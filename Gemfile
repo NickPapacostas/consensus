@@ -8,7 +8,8 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'spine-rails'
 gem 'eco'
-
+gem 'therubyracer'
+gem 'less-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -27,8 +28,8 @@ gem "rack-sprockets"
 gem "rack-less"
 gem "yui-compressor"
 
-gem "juggernaut"
 
+gem "juggernaut", :git => 'git://github.com/maccman/juggernaut.git'
 gem "thin"
 gem "carrierwave"
 gem 'bcrypt-ruby'

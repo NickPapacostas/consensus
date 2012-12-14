@@ -12,6 +12,7 @@
 //= require models/message
 //= require models/channel
 //= require models/user
+
 //= require controllers/messages
 //= require controllers/sidebar
 //= require controllers/searches
@@ -66,4 +67,4 @@ window.App = Spine.Controller.create({
 }).init();
 
 });
-//= require <juggernaut>
+//= require juggernaut
