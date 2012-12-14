@@ -1,17 +1,20 @@
-//= require json2
-//= require lib/array.ext.js
+//= require lib/json2
 //= require lib/jquery
-//= require lib/jquery.tmpl
-//= require lib/jquery.audio
-//= require lib/spine
-//= require lib/spine.model.ajax
-//= require lib/spine.controller.manager
+//= require lib/array.ext.js
+//= require spine/src/spine
+//= require spine/src/ajax
+//= require spine/src/list
+//= require spine/src/local
+//= require spine/src/manager
+//= require spine/src/relation
+//= require spine/src/route
 //= require utils
 
 //= require models/search
 //= require models/message
 //= require models/channel
 //= require models/user
+//= require models/juggernaut
 
 //= require controllers/messages
 //= require controllers/sidebar
@@ -31,7 +34,7 @@ window.App = Spine.Controller.create({
     "#settings": "settingsEl"
   },
 
-  init: function(){
+  constructor: function(){
     this.messages = Messages.init({el: this.messagesEl});
     this.sidebar  = Sidebar.init({el: this.sidebarEl});
     this.searches = Searches.init({el: this.searchesEl});
@@ -64,7 +67,10 @@ window.App = Spine.Controller.create({
   }
 
 
-}).init();
+});
+
+new window.App();
+
 
 });
 //= require juggernaut
