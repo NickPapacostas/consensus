@@ -36,7 +36,8 @@ window.Sidebar = Spine.Controller.create({
   },
 
   renderUsers: function(){
-    var items    = User.all();
+     var items    = User.findAllByAttribute("current_channel_id", App.current_channel());
+    //var items = User.all();
     this.users.html(this.usersTemplate(items));
 
     // Select first channel

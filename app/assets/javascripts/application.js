@@ -55,7 +55,13 @@ window.App = Spine.Controller.create({
     return User.select(function(u){
       return u.email == window.user_email;
     })[0];
+  },
+
+  current_channel: function(){
+    current_chan_name = $('.current').text().replace(/^\s+ | \s+$/g, '');
+    return Channel.findByAttribute("name", current_chan_name);
   }
+
 
 }).init();
 
