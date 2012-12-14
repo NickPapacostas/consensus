@@ -14,7 +14,7 @@ Message.include({
 
   forChannel: function(record){
     if ( !record ) return false;
-    return(this.channel_id === record.id);
+    return(parseInt(this.channel_id) === record.id);
   },
 
   isPaste: function(){
