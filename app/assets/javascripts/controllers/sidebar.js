@@ -31,8 +31,8 @@ window.Sidebar = Spine.Controller.create({
     this.channels.html(this.channelsTemplate(items));
 
     // Select first channel
-    if ( !this.current )
-      this.$("[data-name=channels]:first").click();
+    // if ( !this.current )
+    //   this.$("[data-name=channels]:first").click();
   },
 
   renderUsers: function(){
@@ -57,7 +57,7 @@ window.Sidebar = Spine.Controller.create({
   click: function(e){
     var element = $(e.target);
     var type = element.attr("data-name");
-    if( type == "channels"){
+    if( type != "users"){
         var item = element.item();
         this.App.trigger("change", type, item);
     }

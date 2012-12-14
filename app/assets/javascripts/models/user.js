@@ -4,7 +4,10 @@ User.extend(Spine.Model.Ajax);
 
 
 User.include({
-  set_current_channel_id: function(){
-    this.current_channel_id = App.current_channel().id
+
+  current_channel_id: null,
+
+  reset_current_channel_id: function(current_channel_id){
+    return this.current_channel_id = current_channel_id;
   }
 });
