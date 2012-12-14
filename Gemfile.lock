@@ -97,6 +97,9 @@ GEM
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-less (3.0.2)
+      less (~> 2.0)
+      rack (~> 1.0)
     rack-sprockets (1.0.4)
       rack (>= 0.4)
       sprockets (>= 1.0.0)
@@ -173,6 +176,7 @@ DEPENDENCIES
   jquery-rails
   juggernaut
   pg
+  rack-less
   rack-sprockets
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)

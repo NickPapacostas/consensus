@@ -42,7 +42,9 @@ window.Messages = Spine.Controller.create({
 
   proxied: ["changeChannel", "addNew", "addOne", "render"],
 
-  handle: $("meta[name=handle]").attr("content"),
+  handle: function(){
+    return $("meta[name=handle]").attr("content");
+  },
 
   init: function(){
     Message.bind("create", this.addNew);
@@ -65,8 +67,10 @@ window.Messages = Spine.Controller.create({
     var value = this.input.val();
     if ( !value ) return false;
 
+
+
     Message.create({
-      name:       this.handle,
+      name:       this.handle(),
       channel_id: this.channel.id,
       body: value
     });

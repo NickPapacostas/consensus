@@ -66,4 +66,4 @@ window.App = Spine.Controller.create({
 }).init();
 
 });
-
+//= require <juggernaut>

@@ -22,7 +22,9 @@ group :assets do
 
 end
 
+# gem "supermodel"
 gem "rack-sprockets"
+gem "rack-less"
 gem "yui-compressor"
 
 gem "juggernaut"

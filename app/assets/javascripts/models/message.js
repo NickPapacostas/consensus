@@ -23,6 +23,10 @@ Message.include({
 
   user: function(){
     return User.find(this.user_id);
+  },
+
+  handle: function(){
+    return $("meta[name=handle]").attr("content");
   }
 });
 
